@@ -8,7 +8,7 @@ pipeline {
         }
         stage('docker Build') {
             steps {
-                sh 'docker compose build'  // Убраны лишние скобки и script:
+                sh (script: 'docker compose build')  // Убраны лишние скобки и script:
             }
         }
         stage('Ok') {
