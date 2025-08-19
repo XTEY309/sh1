@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('git') {
             steps {
-                echo '$GIT_branch'
+                echo "${env.BRANCH_NAME}"  // Используйте правильное имя переменной
             }
         }
         stage('docker Build') {
             steps {
-                sh(script: 'docker compose build')
+                sh 'docker compose build'  // Убраны лишние скобки и script:
             }
         }
         stage('Ok') {
             steps {
                 sleep 5 
                 echo 'I\'m ok'
-                }
             }
         }
+    }
 }
